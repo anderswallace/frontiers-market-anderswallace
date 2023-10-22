@@ -1,0 +1,120 @@
+.why-container {
+  display: flex;
+  max-width: 1120px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 80px;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.why-top-overline {
+  width: 1200px;
+  color: var(--37-a-448, #37a448);
+  text-align: center;
+
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 1.28px;
+  text-transform: uppercase;
+}
+
+.why-top-header {
+  width: 1200px;
+  color: var(--gray-900, #101828);
+  text-align: center;
+
+  /* Display-md/Archia */
+  font-family: "Inter", sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 48px;
+  letter-spacing: -0.36px;
+}
+
+.why-top-body {
+  padding-top: 32px;
+  width: 1200px;
+  color: #2e3033;
+  text-align: center;
+  font-family: Manrope;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  text-wrap: balance;
+}
+
+.why-content {
+  display: flex;
+  padding: 0px 80px;
+  width: 1360px;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.why-content-row {
+  display: flex;
+  width: 960px;
+  align-items: center;
+  gap: 100px;
+  border-radius: 12px;
+}
+
+.why-content-text {
+  display: flex;
+  padding: 64px 0px 64px 64px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0 0;
+}
+
+.why-content-top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.why-top-text-overline {
+  color: var(--37-a-448, #37a448);
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: 1.12px;
+  text-transform: uppercase;
+}
+
+.why-top-text-title {
+  color: var(--gray-900, #101828);
+
+  /* Display-xs/SemiBold */
+  font-family: Manrope;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px; /* 142.857% */
+}
+
+.why-top-desc {
+  align-self: stretch;
+  color: #344054;
+
+  /* Body-lg/Medium */
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px; /* 155.556% */
+}

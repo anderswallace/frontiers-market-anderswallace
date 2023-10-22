@@ -1,0 +1,121 @@
+.featured-container {
+  display: flex;
+  max-width: 1440px;
+  width: 100%;
+  padding-top: 80px;
+  padding-left: 160px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 80px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.featured-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.featured-text-overline {
+  color: var(--37-a-448, #37a448);
+  text-align: center;
+
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 1.12px;
+  text-transform: uppercase;
+}
+
+.featured-text-heading {
+  flex: 1 0 0;
+  color: #000;
+
+  font-family: "Inter", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 44px; /* 137.5% */
+  letter-spacing: -0.32px;
+}
+
+.featured-cards {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  align-self: stretch;
+}
+
+.featured-productCard {
+  display: flex;
+  width: 265px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.featured-card-image {
+  display: flex;
+  height: 160px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 6px;
+}
+
+.featured-card-bio {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+}
+
+.featured-bio-name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.featured-bio-title {
+  color: var(--gray-900, #101828);
+
+  font-family: Manrope;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.featured-bio-location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--gray-700, #344054);
+  text-align: center;
+
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.featured-bio-head {
+  color: var(--content-primary, #0d0d0d);
+
+  /* Body-xl/SemiBold */
+  font-family: Manrope;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px; /* 160% */
+}
