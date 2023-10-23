@@ -4,7 +4,13 @@ import Button from "@mui/material/Button";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { useState, useEffect } from "react";
 import { storage } from "../firebaseSetup";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import {
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+  getStorage,
+  listAll,
+} from "firebase/storage";
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -28,18 +34,20 @@ function Listings() {
     }
   }, [file]);
 
+  // call firebase to download uploaded images on page load
+  useEffect(() => {
+    handleDownload();
+  }, []);
+
   function handleUpload() {
-    console.log("we are here");
     if (!file) {
       alert("Please choose a file first");
     } else {
-      const storageRef = ref(storage, `/files/${file?.name}`);
+      const storageRef = ref(storage, `/files/UploadedImages/${file?.name}`);
       const uploadTask = uploadBytesResumable(storageRef, file);
+
       // following code from google firebase documentation
-      // Register three observers:
-      // 1. 'state_changed' observer, called any time the state changes
-      // 2. Error observer, called on failure
-      // 3. Completion observer, called on successful completion
+      // display upload progress while images uploaded to firebase
       uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -67,6 +75,36 @@ function Listings() {
     }
 
     setFile(null);
+  }
+
+  function handleDownload() {
+    const storageRef = storage.ref("files/UploadedImages");
+
+    // Now we get the references of these images
+    storageRef
+      .listAll()
+      .then(function (result) {
+        result.items.forEach(function (imageRef) {
+          // call download URL on each item from 'UploadedImages'
+          downloadURL(imageRef);
+        });
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
+
+  function downloadURL(imageRef: any) {
+    console.log("downloadURL called");
+    imageRef
+      .getDownloadURL()
+      .then(function (url: any) {
+        // TODO: Display the image on the UI
+        console.log(url);
+      })
+      .catch(function (error: any) {
+        console.error(error);
+      });
   }
 
   return (
