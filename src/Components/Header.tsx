@@ -1,7 +1,16 @@
 import React from "react";
+import { useContext } from "react";
 import "./HeaderStyles.css";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { auth } from "../firebaseSetup";
 
 const Header = () => {
+  const user = useContext(AuthContext);
+  const signOut = async () => {
+    await auth.signOut();
+  };
+
   return (
     <nav className="header-container">
       <div className="header-left">
@@ -27,9 +36,15 @@ const Header = () => {
           <a className="buttonStyleWhite" href="">
             Sell Your Livestock
           </a>
-          <a className="buttonStyleGreen" href="">
-            Log In
-          </a>
+          {!user ? (
+            <Link className="buttonStyleGreen" to="/login">
+              Log In
+            </Link>
+          ) : (
+            <a onClick={signOut} className="buttonStyleGreen">
+              Sign Out
+            </a>
+          )}
         </div>
       </div>
     </nav>
