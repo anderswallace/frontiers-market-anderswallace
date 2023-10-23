@@ -1,16 +1,13 @@
 import React from "react";
-import useEffect from "react";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import "./LoginBoxStyles.css";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import { AuthContext } from "../context/AuthContext";
 import { auth } from "../firebaseSetup";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LoginBox = () => {
-  const user = useContext(AuthContext);
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const navigate = useNavigate();
