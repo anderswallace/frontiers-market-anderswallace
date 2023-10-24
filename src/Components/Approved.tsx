@@ -81,7 +81,7 @@ function Approved() {
                 <div className="approved-circle-bottom">
                   <img
                     src={require("../assets/Ellipse780.svg").default}
-                    alt="MobileNotch"
+                    alt="GreenCircle"
                   />
                 </div>
                 <div className="approved-circle-top">

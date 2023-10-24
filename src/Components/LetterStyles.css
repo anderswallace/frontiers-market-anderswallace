@@ -1,0 +1,75 @@
+.letter-container {
+  display: flex;
+  width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 120px 160px;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+}
+
+.letter-text {
+  display: flex;
+  align-items: flex-start;
+  gap: 64px;
+  align-self: stretch;
+}
+
+.letter-left-side {
+  flex: 1 0 0;
+  align-self: stretch;
+  border-radius: 8px;
+}
+
+.letter-right-side {
+  display: flex;
+  padding: 8px 0px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  flex: 1 0 0;
+}
+
+.letter-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+}
+
+.letter-overline {
+  color: var(--37-a-448, #37a448);
+  /* Overline-md/SemiBold */
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
+  letter-spacing: 1.28px;
+  text-transform: uppercase;
+}
+
+.letter-body {
+  color: var(--gray-900, #101828);
+  /* Display-md/Archia */
+  font-family: Inter;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 48px; /* 133.333% */
+  letter-spacing: -0.36px;
+  text-wrap: balance;
+}
+
+.letter-statement {
+  height: 362px;
+  align-self: stretch;
+  color: var(--gray-700, #344054);
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 177.778% */
+}

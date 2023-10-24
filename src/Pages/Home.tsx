@@ -7,6 +7,7 @@ import Why from "../Components/Why";
 import Featured from "../Components/Featured";
 import Listings from "../Components/Listings";
 import Approved from "../Components/Approved";
+import Letter from "../Components/Letter";
 import { AuthContext } from "../context/AuthContext";
 
 function Home() {
@@ -19,6 +20,7 @@ function Home() {
       <Featured />
       {user ? <Listings /> : null}
       <Approved />
+      <Letter />
     </div>
   );
 }
