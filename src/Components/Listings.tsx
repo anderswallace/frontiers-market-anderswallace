@@ -73,7 +73,7 @@ function Listings() {
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             console.log("File available at", downloadURL);
-            setUrls((urls) => [...urls, downloadURL]);
+            setUrls((urls) => [...urls, downloadURL]); // set urls to update listing component
           });
         }
       );

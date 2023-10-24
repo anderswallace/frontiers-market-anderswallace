@@ -6,6 +6,7 @@ import Background from "../Components/Background";
 import Why from "../Components/Why";
 import Featured from "../Components/Featured";
 import Listings from "../Components/Listings";
+import Approved from "../Components/Approved";
 import { AuthContext } from "../context/AuthContext";
 
 function Home() {
@@ -17,6 +18,7 @@ function Home() {
       <Why />
       <Featured />
       {user ? <Listings /> : null}
+      <Approved />
     </div>
   );
 }
