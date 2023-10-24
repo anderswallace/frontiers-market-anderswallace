@@ -2,7 +2,7 @@ import "./ListingsStyles.css";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { storage } from "../firebaseSetup";
 import {
   ref,
@@ -24,8 +24,17 @@ const VisuallyHiddenInput = styled("input")({
   width: 1,
 });
 
+let ignore = false;
+
 function Listings() {
   const [file, setFile] = useState<File | null>(null);
+  const [urls, setUrls] = useState<string[]>([]);
+
+  useLayoutEffect(() => {
+    handleDownload(ignore);
+
+    ignore = true; // cleanup for when effect makes extra calls in dev mode
+  }, []);
 
   // to resolve handler function executing before useState updates state
   useEffect(() => {
@@ -35,9 +44,10 @@ function Listings() {
   }, [file]);
 
   // call firebase to download uploaded images on page load
-  useEffect(() => {
-    handleDownload();
-  }, []);
+  // useEffect(() => {
+  //   handleDownload();
+  //   setBusy(false);
+  // }, []);
 
   function handleUpload() {
     if (!file) {
@@ -77,7 +87,7 @@ function Listings() {
     setFile(null);
   }
 
-  function handleDownload() {
+  function handleDownload(ignore: boolean) {
     const storageRef = storage.ref("files/UploadedImages");
 
     // Now we get the references of these images
@@ -86,7 +96,7 @@ function Listings() {
       .then(function (result) {
         result.items.forEach(function (imageRef) {
           // call download URL on each item from 'UploadedImages'
-          downloadURL(imageRef);
+          downloadURL(imageRef, ignore);
         });
       })
       .catch(function (error) {
@@ -94,13 +104,14 @@ function Listings() {
       });
   }
 
-  function downloadURL(imageRef: any) {
-    console.log("downloadURL called");
+  function downloadURL(imageRef: any, ignore: boolean) {
     imageRef
       .getDownloadURL()
-      .then(function (url: any) {
-        // TODO: Display the image on the UI
-        console.log(url);
+      .then(function (url: string) {
+        if (!ignore) {
+          console.log(url);
+          setUrls((urls) => [...urls, url]); // to prevent batch updating with set state
+        }
       })
       .catch(function (error: any) {
         console.error(error);
@@ -136,6 +147,13 @@ function Listings() {
             }}
           />
         </Button>
+      </div>
+      <div className="listings-uploads">
+        {urls.map((imageUrl, i) => (
+          <div>
+            <img key={i} src={imageUrl} height={160} width={265} />
+          </div>
+        ))}
       </div>
     </div>
   );

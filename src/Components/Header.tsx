@@ -20,17 +20,18 @@ const Header = () => {
           width={84.76712}
           height={56}
         />
-        <text>About Us</text>
+        <p>About Us</p>
       </div>
       <div className="header-right">
         <div className="phone">
-          <text>Call Us</text>
+          <p>Call Us</p>
           <img
             src={require("../assets/mobile-notch.svg").default}
             alt="MobileNotch"
             height={16}
+            style={{ alignSelf: "center" }}
           />
-          <text>(888)-313-1597</text>
+          <p>(888)-313-1597</p>
         </div>
         <div className="buttons">
           <a className="buttonStyleWhite" href="">

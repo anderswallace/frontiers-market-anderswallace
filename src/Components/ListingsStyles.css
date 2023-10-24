@@ -35,3 +35,11 @@
   font-weight: 500;
   line-height: 28px;
 }
+
+.listings-uploads {
+  display: flex;
+  padding-top: 32px;
+  border-radius: 6px;
+  gap: 20px;
+  justify-content: center;
+}
