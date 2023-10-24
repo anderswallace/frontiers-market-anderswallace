@@ -43,12 +43,6 @@ function Listings() {
     }
   }, [file]);
 
-  // call firebase to download uploaded images on page load
-  // useEffect(() => {
-  //   handleDownload();
-  //   setBusy(false);
-  // }, []);
-
   function handleUpload() {
     if (!file) {
       alert("Please choose a file first");
@@ -79,6 +73,7 @@ function Listings() {
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             console.log("File available at", downloadURL);
+            setUrls((urls) => [...urls, downloadURL]);
           });
         }
       );

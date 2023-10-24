@@ -37,9 +37,14 @@
 }
 
 .listings-uploads {
+  max-width: 1120px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
+  flex-wrap: wrap;
   padding-top: 32px;
   border-radius: 6px;
   gap: 20px;
-  justify-content: center;
+  justify-content: start;
 }
